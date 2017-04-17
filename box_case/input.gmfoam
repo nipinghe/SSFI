@@ -1,0 +1,60 @@
+
+<define_model_name>[name]{test_model}
+
+<add_fluid_phase>[mesh_file]{test_model.msh}[volumn_physical_group]{1;2;3;5}[boundary_physical_group]{10;11;12;13;14;15}
+
+<add_solid_phase>[gmessi_file]{test_model_imposed_motion.gmessi}
+
+<load_fluid_mesh> [filename]{test_model_fluid.msh}
+
+<define_transportProperties> [property_name]{nu}[property_dimensions]{0 2 -1 0 0 0 0}[property_value]{0.01}
+
+
+<define_boundaryGeometry>[top_fluid_surface]{wall}[bottom_fluid_surface]{wall}[lateral_surface_4]{wall}[lateral_surface_3]{wall}[lateral_surface_2]{wall}[lateral_surface_1]{wall}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{dimensions}[value]{0 1 -1 0 0 0 0}
+
+<set_boundary_condition>[boundary_file]{U}[variable]{internalField}[value]{uniform; (0 0 0)}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{top_fluid_surface}{type}[value]{fixedValue;uniform;(1 0 0)}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{bottom_fluid_surface}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_4}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_3}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_2}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_1}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{dimensions}[value]{0 2 -2 0 0 0 0}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{internalField}[value]{uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{boundaryField}{top_fluid_surface}{type}[value]{zeroGradient}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{boundaryField}{bottom_fluid_surface}{type}[value]{zeroGradient}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{boundaryField}{lateral_surface_4}{type}[value]{zeroGradient}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{boundaryField}{lateral_surface_3}{type}[value]{zeroGradient}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{boundaryField}{lateral_surface_2}{type}[value]{zeroGradient}
+
+
+<set_boundary_condition>[boundary_file]{p}[variable]{boundaryField}{lateral_surface_1}{type}[value]{zeroGradient}

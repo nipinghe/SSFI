@@ -1,0 +1,9 @@
+#!/bin/bash
+export CURRENT_DIR=$PWD
+cp $CURRENT_DIR/*.sl ./$1
+cd ./$1
+rm -f surface_load.include
+sed -n "/[ ]*add[ ]*load[ #A_Za-z0-9]*surface/p"  *.sl>surface_load.include
+sed 's/[a-zA-Z#(),;_=*]/ /g' surface_load.include >surface_load.temp
+mv surface_load.temp surface_load.include
+rm -f *.sl

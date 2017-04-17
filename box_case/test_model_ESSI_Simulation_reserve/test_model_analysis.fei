@@ -1,0 +1,23 @@
+model name "test_model"; 
+
+
+add material # 1 type linear_elastic_isotropic_3d mass_density = 2146*kg/m^3 elastic_modulus = 37782251.8*N/m^2 poisson_ratio = 0.200; 
+
+new loading stage "imposed_motion"; 
+
+include "test_model_geometry.fei"; 
+
+include "test_model_load.fei"; 
+
+
+define solver ProfileSPD; 
+
+define dynamic integrator Newmark with gamma = 0.5 beta = 0.25; 
+
+define algorithm With_no_convergence_check; 
+
+simulate 50 steps using transient algorithm time_step = 0.005*s; 
+
+ bye; 
+
+

@@ -1,0 +1,32 @@
+model name "water_break"; 
+
+
+add material # 1 type linear_elastic_isotropic_3d mass_density = 2146*kg/m^3 elastic_modulus = 3e10*N/m^2 poisson_ratio = 0.200; 
+add material # 2 type linear_elastic_isotropic_3d mass_density = 2146*kg/m^3 elastic_modulus = 6e7*N/m^2 poisson_ratio = 0.300; 
+
+
+
+
+add acceleration field # 1 ax = 0*g ay = 0*g az = -1*g ; 
+
+
+new loading stage "self_weight"; 
+
+include "water_break_geometry.fei"; 
+
+include "water_break_load.fei"; 
+
+add load # 1 to all elements type self_weight use acceleration field # 1; 
+
+define solver UMFPack; 
+
+define algorithm With_no_convergence_check; 
+
+define load factor increment 0.1; 
+
+simulate 10 steps using static algorithm; 
+ bye; 
+
+
+
+

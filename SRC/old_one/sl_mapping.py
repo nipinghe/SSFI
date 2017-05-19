@@ -19,7 +19,7 @@ foam_pressure_file="foam_pressure"  #filename about Openfoam pressure informatio
 pressure_unit="kg/m/s^(2)"
 
 # ##################### the beginning load ID of surface load ####################################
-beginning_load_id=int(sys.argv[2])
+# beginning_load_id=int(sys.argv[2])
 ##############################################################################################
 
 # ##################### end input ################################################################
@@ -121,7 +121,7 @@ surface_pressure=sp.zeros((No_surface_load,1));
 
 for x5 in xrange(0,No_surface_load):
 	surface_pressure[x5,0]=foam_pressure[surface_mapping[x5],1]
-	surface_load[x5,0]=surface_load[x5,0]+beginning_load_id;
+	# surface_load[x5,0]=surface_load[x5,0]+beginning_load_id;
 
 
 surface_load=sp.column_stack((surface_load,surface_pressure))

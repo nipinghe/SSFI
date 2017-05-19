@@ -1,0 +1,92 @@
+
+<define_model_name>[name]{box}
+
+<add_fluid_phase>[mesh_file]{box.msh}[volumn_physical_group]{1;2;3;5}[boundary_physical_group]{10;11;12;13;14;15}
+
+<add_solid_phase>[gmessi_file]{box.gmessi}
+
+<load_fluid_mesh> [filename]{box_fluid.msh}  ## This one should be automatically done
+
+<add_solid_fluid_interface>[boundary_name]{bottom_fluid_surface}{lateral_surface_1}{lateral_surface_2}{lateral_surface_3}{lateral_surface_4}
+
+<define_transportProperties> [phase]{water}[transportModel]{Newtonian}[nu]{0 2 -1 0 0 0 0}{1e-06}[rho]{1 -3 0 0 0 0 0}{1000}
+
+<define_transportProperties> [phase]{air}[transportModel]{Newtonian}[nu]{0 2 -1 0 0 0 0}{1.48e-05}[rho]{1 -3 0 0 0 0 0}{1}
+
+<define_transportProperties> [sigma]{1 0 -2 0 0 0 0}{0.07}
+
+<define_boundaryGeometry>[top_fluid_surface]{wall}[bottom_fluid_surface]{wall}[lateral_surface_4]{wall}[lateral_surface_3]{wall}[lateral_surface_2]{wall}[lateral_surface_1]{wall}
+
+
+<set_system>[system_file]{controlDict}[variable]{startTime}[value]{0};
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{dimensions}[value]{0 1 -1 0 0 0 0}
+
+<set_boundary_condition>[boundary_file]{U}[variable]{internalField}[value]{uniform; (0 0 0)}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{top_fluid_surface}{type}[value]{pressureInletOutletVelocity;uniform;(0 0 0)}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{bottom_fluid_surface}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_4}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_3}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_2}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{U}[variable]{boundaryField}{lateral_surface_1}{type}[value]{noSlip}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{dimensions}[value]{1 -1 -2 0 0 0 0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{internalField}[value]{uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{boundaryField}{top_fluid_surface}{type}[value]{totalPressure;uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{boundaryField}{bottom_fluid_surface}{type}[value]{fixedFluxPressure;uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{boundaryField}{lateral_surface_4}{type}[value]{fixedFluxPressure;uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{boundaryField}{lateral_surface_3}{type}[value]{fixedFluxPressure;uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{boundaryField}{lateral_surface_2}{type}[value]{fixedFluxPressure;uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{p_rgh}[variable]{boundaryField}{lateral_surface_1}{type}[value]{fixedFluxPressure;uniform;0}
+
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{dimensions}[value]{0 0 0 0 0 0 0}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{internalField}[value]{uniform; 1}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{boundaryField}{top_fluid_surface}{type}[value]{inletOutlet;uniform;0;uniform;0}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{boundaryField}{bottom_fluid_surface}{type}[value]{zeroGradient}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{boundaryField}{lateral_surface_4}{type}[value]{zeroGradient}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{boundaryField}{lateral_surface_3}{type}[value]{zeroGradient}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{boundaryField}{lateral_surface_2}{type}[value]{zeroGradient}
+
+<set_boundary_condition>[boundary_file]{alpha.water}[variable]{boundaryField}{lateral_surface_1}{type}[value]{zeroGradient}
+
+<set_system>[system_file]{controlDict}[variable]{deltaT}[value]{0.0001};
+
+<set_system>[system_file]{controlDict}[variable]{writeInterval}[value]{0.005};
+
+<set_system>[system_file]{controlDict}[variable]{endTime}[value]{0.005};
+

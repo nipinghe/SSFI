@@ -6,7 +6,7 @@
 * Rev:               Version 1                                   | jeremic@ucdavis.edu                  *
 * Email:             hexwang@ucdavis.edu                         | Computational Geomechanics Group     *
 * * * * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  * 
-*                           Last Modified time: 2017-04-11 18:30:16                                     *            
+*                           Last Modified time: 2017-05-10 22:51:36                                     *            
 *  * * * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *         
 * The copyright to the computer program(s) herein is the property of Hexiang Wang and Boris Jeremic     *
 * The program(s) may be used and/or copied only with written permission of Hexiang Wang or in accordance* 
@@ -287,9 +287,11 @@ void postFoam::boundary_pressure(double time)
 
 
 void postFoam::ESSI_input_pressure_load(int surface_load_beginning_ID)
+void postFoam::ESSI_input_pressure_load()
 {
-	string surface_load_id=std::to_string(surface_load_beginning_ID);
-	string bash_call_string="sl_mapping.py "+project_name+" "+surface_load_id;
+	// string surface_load_id=std::to_string(surface_load_beginning_ID);
+	// string bash_call_string="sl_mapping.py "+project_name+" "+surface_load_id;
+	string bash_call_string="sl_mapping.py "+project_name;
 	system(bash_call_string.c_str());		
 }
 

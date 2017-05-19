@@ -1,0 +1,23 @@
+# Fdb version 3
+["pdflatex"] 1494910647 "/home/hexiang/git/SSFI/tutorial/doc/SSFI_doc.tex" "/home/hexiang/git/SSFI/tutorial/doc/SSFI_doc.pdf" "SSFI_doc" 1494910647
+  "/etc/texmf/web2c/texmf.cnf" 1479518178 1101 af7716885e081ab43982cab7b4672c1a ""
+  "/home/hexiang/git/SSFI/tutorial/doc/SSFI_doc.aux" 1494910647 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/hexiang/git/SSFI/tutorial/doc/SSFI_doc.tex" 1494910646 2519 286ff6fbd12705cf15aac3f3825d9de6 ""
+  "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1454284088 20708 39fdf9e2fb65617012fa7382a351f485 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1454284088 9179 4cd3c5f593e63512893b8ac0123f1bd7 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1458942643 31351 b32c45dce4a01cb7b53ed90c546614ca ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1479518388 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1479518418 3862254 a15b475883668a1141b94cc8911c7cd1 ""
+  "SSFI_doc.aux" 1494910647 8 a94a2480d3289e625eea47cd1b285758 ""
+  "SSFI_doc.tex" 1494910646 2519 286ff6fbd12705cf15aac3f3825d9de6 ""
+  (generated)
+  "SSFI_doc.pdf"
+  "/home/hexiang/git/SSFI/tutorial/doc/SSFI_doc.log"
+  "SSFI_doc.log"
+  "/home/hexiang/git/SSFI/tutorial/doc/SSFI_doc.pdf"
+  "SSFI_doc.aux"

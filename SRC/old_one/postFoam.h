@@ -6,7 +6,7 @@
 * Rev:               Version 1                                   | jeremic@ucdavis.edu                  *
 * Email:             hexwang@ucdavis.edu                         | Computational Geomechanics Group     *
 * * * * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  * 
-*                           Last Modified time: 2017-04-11 18:28:43                                     *            
+*                           Last Modified time: 2017-05-10 16:23:34                                     *            
 *  * * * * * * * * * * * *  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *         
 * The copyright to the computer program(s) herein is the property of Hexiang Wang and Boris Jeremic     *
 * The program(s) may be used and/or copied only with written permission of Hexiang Wang or in accordance* 
@@ -50,7 +50,7 @@ class postFoam
 		void fluid_nodes(); //write fluid nodes information to ESSI simulation folder
 		void fluid_surfaces(); //write fluid surfaces information to ESSI simulation folder
 		void boundary_pressure(double time); // write boundary pressure information to ESSI simulation folder
-		void ESSI_input_pressure_load(int surface_load_beginning_ID); //build the geometry mapping realtionship and write ESSI input_pressure_load fei file
+		void ESSI_input_pressure_load(); //build the geometry mapping realtionship and write ESSI input_pressure_load fei file
 
 	private:
 		string project_name; 

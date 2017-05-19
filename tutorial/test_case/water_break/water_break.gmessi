@@ -1,0 +1,58 @@
+GmESSI.loadMshFile("water_break.msh")
+
+[Define_Model_Name{ModelName:= "water_break"}]
+
+#[Add_All_Node{Unit:= m, NumDofs:= 3}]
+[Add_Node{Physical_Group#1, Unit:= m, NumDofs:= 3}]
+[Add_Node{Physical_Group#2, Unit:= m, NumDofs:= 3}]
+
+[Add_Linear_Elastic_Isotropic_3D{MaterialNo:= 1, Density:= 2146*kg/m^3, ElasticModulus:=  3e10*N/m^2, PoissonRatio:= 0.200}]
+[Add_Linear_Elastic_Isotropic_3D{MaterialNo:= 2, Density:= 2146*kg/m^3, ElasticModulus:=  6e7*N/m^2, PoissonRatio:= 0.300}]
+
+
+#physical group 3: outside layer 2. physical group 4: outside layer 3
+[Add_8NodeBrick{Physical_Group#1, MaterialNo:= 1 }]
+[Add_8NodeBrick{Physical_Group#2, MaterialNo:= 2 }]
+
+
+[Add_Acceleration_Field{FieldNo:= 1, AccX:= 0*g, AccY:= 0*g, AccZ:= -1*g}]
+
+[Fix_Dofs{Physical_Group#20, DofTypes:= uy uz}]
+
+#[Add_Node_Load_Imposed_Motion_Series{Physical_Group#16, DofType:= ux, DispScale:= 1*m, DispFile:= "dis.txt", VelScale:= 1*m/s, VelFile:= "vel.txt" , AccScale:= 1*m/s^2, AccFile:= "acc.txt"}]
+
+[New_Loading_Stage{StageName:= "self_weight"}]
+
+[Include{FileName:= "water_break_geometry.fei"}]
+
+[Include{FileName:= "water_break_load.fei"}]
+
+[Add_Self_Weight_To_All_Elements{FieldNo:= 1}]
+
+#[Include{FileName:= "surface_load.fei"}]
+
+
+[Define_Solver{SolverName:= UMFPack }]
+
+#[Define_Dynamic_Newmark_Integrator{Gamma:= 0.5, Beta:= 0.25}]
+
+[Define_Algorithm{AlgoType:= With_no_convergence_check}]
+
+[Define_Load_Factor_Increment{Incr:= 0.1}]
+
+[Simulate_Using_Static_Algorithm{NumSteps:= 10}]
+#[Simulate_Using_Transient_Algorithm{NumSteps:= 50, TimeIncr:= 0.005*s}]
+
+[Bye{}]
+
+
+GmESSI.setLoadFile('SurfaceLoad.sl')   #***********Attention the postfix of the output filename must be sl************************#
+
+[Add_8NodeBrick_SurfaceLoad{Physical_Group#4, Physical_Group#21, Pressure:= p}]
+
+
+#NodeList = GmESSI.getPhysicalGroupNodes(17);
+#print len(NodeList)
+
+[Write_Data{Physical_Group#21, FileName:= fluid_surface}]
+#[Var{variable:= p1, value:= 1*Pa}]

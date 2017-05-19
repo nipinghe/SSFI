@@ -1,0 +1,14 @@
+
+<define_model_name>[name]{water_break}
+
+<add_fluid_phase>[mesh_file]{water_break.msh}[volumn_physical_group]{3}[boundary_physical_group]{11;12;13;14;15;24;25;26;27;28}
+
+<add_solid_phase>[gmessi_file]{water_break.gmessi}
+
+<load_fluid_mesh> [filename]{water_break_fluid.msh}
+
+<define_transportProperties> [phase]{water}[transportModel]{Newtonian}[nu]{[0 2 -1 0 0 0 0]}{1e-06}[rho]{[1 -3 0 0 0 0 0]}{1000}
+
+<define_transportProperties> [phase]{air}[transportModel]{Newtonian}[nu]{[0 2 -1 0 0 0 0]}{1.48e-05}[rho]{[1 -3 0 0 0 0 0]}{1}
+
+<define_transportProperties> [sigma]{[1 0 -2 0 0 0 0]}{0.07}

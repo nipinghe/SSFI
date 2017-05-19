@@ -1,0 +1,76 @@
+                                                               
+                                                               
+  The Finite Element Interpreter                               
+                                                               
+  Real ESSI                                                  
+  Earthquake Soil Structure Interaction Simulator            
+                                                             
+  Sequential processing mode.                                
+                                                             
+Version Name   : Academic Version. Release date: Apr 5 2017 at 11:30:46. Tag: e4ea0574b6
+Version Branch : master
+Compile Date   : Apr  5 2017 at 13:26:53
+Compile User   : hexiang
+Compile Sysinfo: cml08 4.4.0-66-generic x86_64 GNU/Linux
+Runtime User   : Runtime Sysinfo: Time Now       : Apr 16 2017 at 22:59:42
+                                                               
+Static startup tips:                                           
+ * Remember: Every command ends with a semicolon ';'.          
+ * Type 'quit;' or 'exit;' to finish.                          
+ * Run 'essi -h' to see available command line options.        
+                                                               
+Including: "water_break_analysis.fei"
+
+
+Model name is being set to "water_break"
+
+
+
+Starting new stage: self_weight
+
+changing previous_stage_name from  to self_weight
+Including: "water_break_geometry.fei"
+
+Done including: "water_break_geometry.fei" (2980 lines included).
+Continuing with "water_break_analysis.fei" at line 17.
+
+Including: "water_break_load.fei"
+
+Done including: "water_break_load.fei" (228 lines included).
+Continuing with "water_break_analysis.fei" at line 20.
+
+
+Starting sequential static multistep analysis
+====================================================================================================
+Creating analysis model........................................................................Pass!
+Checking constraint handler....................................................................Pass!
+Checking numberer..............................................................................Pass!
+Checking analysis algorithm....................................................................Pass!
+Checking system of equation handler............................................................Pass!
+Checking static integration handler............................................................Pass!
+
+ 
+ Writing Initial Conditions and   (0) - Outputting mesh.
+
+Static Analysis: [    1/10   ] 
+
+Static Analysis: [2    /10   ] 
+
+Static Analysis: [3    /10   ] 
+
+Static Analysis: [4    /10   ] 
+
+Static Analysis: [5    /10   ] 
+
+Static Analysis: [6    /10   ] 
+
+Static Analysis: [7    /10   ] 
+
+Static Analysis: [8    /10   ] 
+
+Static Analysis: [9    /10   ] 
+
+Static Analysis: [10   /10   ] 
+
+> Analysis End -------------------------------------------------------------------------------
+How polite! Bye, have a nice day!

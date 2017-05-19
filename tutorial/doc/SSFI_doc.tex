@@ -1,0 +1,39 @@
+% @Author: hexiang6666
+% @Date:   2017-05-10 18:09:11
+% @Last Modified by:   hexiang6666
+% @Last Modified time: 2017-05-15 21:57:25
+
+\documentclass{article}
+\begin{document}
+\textbf{\centerline{Earthquake Soil Fluid Structure Interaction Programing Memorandum}}
+\textbf{\centerline{By \ \ Hexiang\ \ Wang}}
+	\\
+\begin{enumerate}
+	\item
+	gmFoam
+		\begin{enumerate}
+			\item 
+			move postFoam class into gmFoam so that in preprocess stage we get all the solid fluid interface information and write them as plain txt (contain only numbers) files inside ESSI simulation folder. 
+			\item
+			surface\_load.sl is a template surface load fei input file generated through gmESSI, containing all ESSI interface surface information with p unknown. \textbf{surface\_load\_preprocess} will handle this file and transform it into plain text file surface\_load\_info.fei and put this info fei file inside ESSI simulation folder. \textbf{surface\_load\_preprocess} has also been incorporated into gmFoam and been run while executing \textbf{add\_solid\_fluid\_interface} command.
+			\item
+			Add a new command \textbf{add\_solid\_fluid\_interface} in gmFoam so that in preprrocess stage, gmFoam will extract soild fluid interface surface information (nodes coordinate and surface consisting node ID) and write them into ESSI simulation file.
+			\item 
+			The foam\_nodes.fei in ESSI simulation file contains \textbf{only} interface node ID and coordinate information in fluid model. There are four columns: nodeID, x, y, z coordinates, respectively. foam\_faces.fei in ESSI simulation file contains only solid fluid interface surface information. The first column is surface ID. The remaining columns are node IDs that consisting that surface. 
+			\item 
+			gmFoam also conduct some postprocess in \textbf{add\_solid\_fluid\_interface} command for the ESSI nodes infomation file, finally generated \textbf{ESSI\_nodes.fei} file as an input file. There are 4 columns in \textbf{ESSI\_nodes.fei}. The first column is ESSI node ID. The next three columns are x, y and z coordinates. 
+		\end{enumerate}
+	
+	\item
+	SSFI
+		\begin{enumerate}
+			\item
+			SSFI will capture pressure data from Openfoam output folder and get ESSI surface load information.
+			\item 
+			In SSFI, we will identify the ESSI surface ID with the surface load ID. (i.e. the first column of the \textbf{surface\_load\_info.fei} ).We will also initialize \textbf{ESSI\_surfaces} with \textbf{surface\_load\_info.fei}. 
+
+
+		\end{enumerate}
+
+\end{enumerate}
+\end{document}
